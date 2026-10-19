@@ -1,8 +1,12 @@
 #include <AEEngine.h>
 #include <imgui/imgui.h>
 #include "Level 1.h"
+#include "src/Framework/event_handlers.hh"
+#include "src/Gameplay/Ball.h"
 
 int mode = 0;
+gameplayEventManager* gEventManager = nullptr;
+Ball* ball = nullptr;
 
 bool ShowFrameworkMenu();
 
@@ -12,6 +16,11 @@ void Level_1_Load()
 
 void Level_1_Init()
 {
+    gEventManager = new gameplayEventManager;
+    ball = new Ball;
+
+
+    gEventManager->registerEventHandler(new EventHandler<Ball, collisionEvent>(ball, &Ball::onHit));
 }
 
 void Level_1_Update()

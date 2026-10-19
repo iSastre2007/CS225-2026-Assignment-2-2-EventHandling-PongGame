@@ -60,3 +60,12 @@ class EventManager
 
 	virtual void update() = 0;
 };
+
+
+
+class gameplayEventManager : public EventManager
+{
+public:
+    void update() override;
+};
+

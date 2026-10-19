@@ -24,6 +24,6 @@ public:
     virtual void Draw();
 
     // Default destroyer for the class
-    virtual ~Entity();
+    virtual ~Entity() = default;
 };
 
